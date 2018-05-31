@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="./style.css">
+<title>Remove Coupon</title>
+<script>
+
+	var xmlhttp;
+	function init (){
+		
+		xmlhttp=new XMLHttpRequest ();
+	}
+	function removeDetails (){
+	
+		var coupon=document.getElementById("couponid");
+		var url = "http://localhost:8080/Coupons/rest/companyService/deletecoupon?couponid="+coupon.value;
+		xmlhttp.open('DELETE', url, true);
+		xmlhttp.send(null);	
+		
+}
+</script>
+</head>
+<body>
+
+	<body onload="init()">
+
+	<h1>Call Company Service</h1>
+	 <table id="table">
+	 	<tr>
+	 		<th>Enter Coupon's Id</th>
+	 		<td><input type="text" id="couponid" size="10" /> <input id="button" type="button" value="Delete Info" onClick="removeDetails()"/>
+	 	</tr>	 	
+	 </table>
+
+</body>
+	
+
+</body>
+</html>
