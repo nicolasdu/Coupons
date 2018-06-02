@@ -2,24 +2,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
-<link rel="stylesheet" type="text/css" href="./style.css">
+<link rel="stylesheet" type="text/css" href="../style.css">
+<script src="./removeCoupon.js"></script>
 <title>Remove Coupon</title>
-<script>
-
-	var xmlhttp;
-	function init (){
-		
-		xmlhttp=new XMLHttpRequest ();
-	}
-	function removeDetails (){
-	
-		var coupon=document.getElementById("couponid");
-		var url = "http://localhost:8080/Coupons/rest/companyService/deletecoupon?couponid="+coupon.value;
-		xmlhttp.open('DELETE', url, true);
-		xmlhttp.send(null);	
-		
-}
-</script>
 </head>
 <body>
 

@@ -1,14 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-<link rel="stylesheet" type="text/css" href="../style.css">
-<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
-
-<title>Get All Companies</title>
-<script> 
-
-
-	var url="http://localhost:8080/Coupons/rest/adminServices/getallcompanies";
+	var url="http://localhost:8080/Coupons/rest/companyService/getallcoupons";
 	var xhttp = new XMLHttpRequest();
 	xhttp.onreadystatechange = function() {
 	    if (this.readyState == 4 && this.status == 200) {
@@ -31,7 +21,6 @@
 					numofobjects++
 				}
 			}
-			
 			populateHTMLTable(result);	
 	}
 
@@ -42,6 +31,7 @@
 					var res2 = res.split("}{");
 			
 					insertQueriesIntoTable(res2);
+					
 	}
 					
 		function insertQueriesIntoTable(res2) {
@@ -56,6 +46,10 @@
 			        var cell3 = row.insertCell(2);
 			        var cell4 = row.insertCell(3);
 			        var cell5 = row.insertCell(4);
+			        var cell6 = row.insertCell(5);
+			        var cell7 = row.insertCell(6);
+			        var cell8 = row.insertCell(7);
+			        var cell9 = row.insertCell(8);
 					
 			        if(i==0) 
 			        	var text = (res2[i]+"}");
@@ -67,34 +61,22 @@
 				    var obj = JSON.parse(text);
 			        cell1.innerHTML =obj.id;
 			        cell1.id="1"+[i];
-			        cell2.innerHTML = obj.compName;
+			        cell2.innerHTML = obj.title;
 			        cell2.id="2"+[i]; // + row
-			        cell3.innerHTML = obj.password;
+			        cell3.innerHTML = obj.startDate;
 			        cell3.id="3"+[i];
-			        cell4.innerHTML = obj.email;
+			        cell4.innerHTML = obj.endDate;
 			        cell4.id="4"+[i];
-			        cell5.innerHTML = obj.coupons;
+			        cell5.innerHTML = obj.amount;
 			        cell5.id="5"+[i];
+			        cell6.innerHTML = obj.message;
+			        cell6.id="6"+[i]; // + row
+			        cell7.innerHTML = obj.price;
+			        cell7.id="7"+[i];
+			        cell8.innerHTML = obj.image;
+			        cell8.id="8"+[i];
+			        cell9.innerHTML = obj.type;
+			        cell9.id="9"+[i];
 			    }
 		}
 		
-</script>
-</head>
-<body>
-	<button id=button type="button" onclick="numOfObjects()">Click Me!</button>
-<table style="width:100%" id="myTable" border="1" >
-  <tr id=t>
-    <th id="01">Company ID</th>
-    <th id="02" >Company Name</th> 
-    <th id="03" >Password</th>
-    <th id="04">Email</th>
-    <th id="05"> Coupon</th>
-  </tr>
-  
-</table>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-</body>
-
-</html>
-
-

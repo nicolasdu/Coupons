@@ -1,35 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" type="text/css" href="./style.css">
+<link rel="stylesheet" type="text/css" href="../style.css">
 <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+<script src="createcoupon.js"></script>
 <title>Create Coupon</title>
-<script>
-
-	var xmlhttp;
-	function init() {
-		
-		xmlhttp=new XMLHttpRequest ();
-	}
-	
-	function setDetails() {
-		alert("set details");
-		var coupid=document.getElementById("coupid");
-		var couptitle=document.getElementById("couptitle"); 
-		var start=document.getElementById("start");
-		var end=document.getElementById("end");
-		var type=document.getElementById("type");
-		var message=document.getElementById("message"); 
-		var amount=document.getElementById("amount");
-		var price=document.getElementById("price");
-		var image=document.getElementById("image");
-		
-		var url ="http://localhost:8080/Coupons/rest/companyService/createcoupon?id="+coupid.value+"&title="+couptitle.value+"&start="+start.value+"&end="+end.value+"&type="+type.value+"&message="+message.value+"&amount="+amount.value+"&price="+price.value+"&image="+image.value;
-		xmlhttp.open('POST',url, true);
-		xmlhttp.send(null);
-		alert("SENT");
-	}
-</script>
 </head>
 
 <body onload="init()">
@@ -43,12 +18,12 @@
 	 	
 	 	<tr>
 	 		<th>Enter Coupon's Start Date</th>
-	 		<td><input type="date" id="start" size="30"/></td>
+	 		<td><input type="date" id="start" placeholder="YYYY-MM-DD" size="30"/></td>
 	 	</tr>
 	 	
 	 	<tr>
 	 		<th>Enter Coupon's End Date</th>
-	 		<td><input type="date" id="end" size="30"/></td>
+	 		<td><input type="date" id="end" placeholder="YYYY-MM-DD" size="30"/></td>
 	 	</tr>
 	 	
 	 	<tr>

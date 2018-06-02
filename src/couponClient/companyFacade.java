@@ -3,6 +3,7 @@ package couponClient;
 import java.util.Collection;
 
 import cop.Coupon;
+import cop.couponType;
 import dao.companyDBDAO;
 import dao.couponDBDAO;
 
@@ -46,9 +47,9 @@ public class companyFacade implements couponClientFacade {
 		return couponDBDAO.getAllCoupon();
 	}
 	
-	public Collection<Coupon> getCouponByType(Coupon couponType)
+	public Collection<Coupon> getCouponByType(couponType couponType)
 	{
-		return couponDBDAO.getCouponType(couponType);
+		return couponDBDAO.getCouponbyType(couponType);
 	}
 	
 	@Override

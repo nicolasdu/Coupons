@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+ <link rel="stylesheet" type="text/css" href="../style.css">
+ <script src="./getCoupon.js"></script>
+ 
+<title>Get Coupon</title>
+</head>
+
+<body onload="init()">
+
+	<h1>Call Company Service</h1>
+	 <table id="table">
+	 	<tr>
+	 		<th>Enter Coupon's Id</th>
+	 		<td><input type="text" id="couponId" size="10" /> <input id="button" type="button" value="Get Info" onClick="getDetails()"/>
+	 	</tr>	
+	 	
+	 	<tr>
+	 		<th>Coupon's Start Date</th>
+	 		<td><input type="date" readonly="true"  id="start" size="30"/></td>
+	 	</tr>
+	 	
+	 	<tr>
+	 		<th> Coupon's End Date</th>
+	 		<td><input type="date" readonly="true"  id="end" size="30"/></td>
+	 	</tr>
+	 	
+	 	<tr>
+	 		<th>Coupon's Type</th>
+	 		<td>
+			 <input type="type" readonly="true"  id="type" size="30"/>
+			</td>
+	 	</tr>
+	 	
+	 	<tr>
+	 		<th> Message</th>
+	 		<td><textarea id="message" readonly="true" ></textarea></td>
+	 	</tr>
+	 	
+	 	<tr>
+	 		<th> Coupon's  Title</th>
+	 		<td><input type="text" readonly="true"  id="couptitle" size="30"/></td>
+	 	</tr>
+	 	
+	 	<tr>
+	 		<th> Amount</th>
+	 		<td><input type="text" readonly="true"  id="amount" size="30"/></td>
+	 	</tr>
+	 	
+	 	<tr>
+	 		<th>Image</th>
+	 		<td><input type="file" id="image" name="profile_photo" placeholder="Photo" required="" capture></td>
+	 	</tr>
+	 	
+	 	<tr>
+	 		<th> Price</th>
+	 		<td><input type="text" readonly="true"  id="price" size="30"/></td>
+	 	</tr>
+	 	
+	 </table>
+
+</body>
+</html>

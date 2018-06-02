@@ -2,23 +2,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
- <link rel="stylesheet" type="text/css" href="../style.css">
+ <link rel="stylesheet" type="text/css" href="../../style.css">
+ <script src="removeCustomer.js"></script>
 <title>Remove Customer</title>
-<script>
-
-	var xmlhttp;
-	function init (){
-		
-		xmlhttp=new XMLHttpRequest ();
-	}
-	function removeDetails (){
-		
-		var custid=document.getElementById("custid");
-		var url = "http://localhost:8080/Coupons/rest/adminServices/deletecustomer?custid="+custid.value;
-		xmlhttp.open('DELETE', url, true);
-		xmlhttp.send(null);	
-}
-</script>
 </head>
 <body>
 

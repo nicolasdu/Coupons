@@ -1,14 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-<link rel="stylesheet" type="text/css" href="../style.css">
-<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<title>Get All Customers</title>
-<script> 
-
-
-	var url="http://localhost:8080/Coupons/rest/adminServices/getallcustomers";
+var url="http://localhost:8080/Coupons/rest/adminServices/getallcompanies";
 	var xhttp = new XMLHttpRequest();
 	xhttp.onreadystatechange = function() {
 	    if (this.readyState == 4 && this.status == 200) {
@@ -55,41 +45,26 @@
 			        var cell2 = row.insertCell(1);
 			        var cell3 = row.insertCell(2);
 			        var cell4 = row.insertCell(3);
-								
+			        var cell5 = row.insertCell(4);
+					
 			        if(i==0) 
 			        	var text = (res2[i]+"}");
 			        else if(i==res2.length-1)
 			        	var text = ("{"+res2[i]);	
 			        else
 			        	var text = ("{"+res2[i]+"}");
-			        
+			   
 				    var obj = JSON.parse(text);
 			        cell1.innerHTML =obj.id;
 			        cell1.id="1"+[i];
-			        cell2.innerHTML = obj.custName;
+			        cell2.innerHTML = obj.compName;
 			        cell2.id="2"+[i]; // + row
 			        cell3.innerHTML = obj.password;
 			        cell3.id="3"+[i];
-			        cell4.innerHTML = obj.coupons;
+			        cell4.innerHTML = obj.email;
 			        cell4.id="4"+[i];
+			        cell5.innerHTML = obj.coupons;
+			        cell5.id="5"+[i];
 			    }
 		}
 		
-</script>
-</head>
-<body>
-	<button id=button type="button" onclick="numOfObjects()">Click Me!</button>
-<table style="width:100%" id="myTable" border="1" >
-  <tr id=t>
-    <th id="01">Customer's ID</th>
-    <th id="02" >Customer's Name</th> 
-    <th id="03" >Customer's Password</th>
-    <th id="04" >Customer's Coupons</th>
-  </tr>
-  
-</table>
-</body>
-
-</html>
-
-

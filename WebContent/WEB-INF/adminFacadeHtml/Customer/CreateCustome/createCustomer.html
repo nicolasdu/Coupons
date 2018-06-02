@@ -2,26 +2,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
- <link rel="stylesheet" type="text/css" href="../style.css">
+ <link rel="stylesheet" type="text/css" href="../../style.css">
+ <script src="createCustomer.js"></script>
 <title>Create Customer</title>
-<script>
 
-	var xmlhttp;
-	function init() {
-		
-		xmlhttp=new XMLHttpRequest ();
-	}
-	
-	function setDetails() {
-		var cusid=document.getElementById("cusid");
-		var cusname=document.getElementById("cusname"); 
-		var cuspass=document.getElementById("cuspass");
-		var url = "http://localhost:8080/Coupons/rest/adminServices/createcustomer?id="+cusid.value+"&name="+cusname.value+"&pass="+cuspass.value;
-		xmlhttp.open('POST',url, true);
-		xmlhttp.send(null);
-		alert("SENT");
-	}
-</script>
 </head>
 
 <body onload="init()">

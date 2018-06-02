@@ -1,12 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
- <link rel="stylesheet" type="text/css" href="../style.css">
-<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
-<title>Get Customer's Info</title>
-<script> 
-
-	var xmlhttp;
+var xmlhttp;
 	function init (){
 		
 		xmlhttp=new XMLHttpRequest ();
@@ -45,29 +37,3 @@ function getDetails (){
 			
 		}
 }
-</script>
-</head>
-
-<body onload="init()">
-
-	<h1>Customers Information</h1>
-	 <table id="table">
-	 	<tr>
-	 		<th>Enter Customer Id</th>
-	 		<td><input type="text" id="custId" size="10" /> <input id="button" type="button" value="Get Customer's Info" onClick="getDetails()"/>
-	 	</tr>	
-	 	
-	 	<tr>
-	 		<th>Customer Name</th>
-	 		<td><input type="text" readonly="true"  id="custname" size="30"/></td>
-	 	</tr>
-	 	
-	 	<tr>
-	 		<th>Customer Password</th>
-	 		<td><input type="text" readonly="true"id="custpass" size="30"/></td>
-	 	</tr>
-	 	
-	 </table>
-
-</body>
-</html>

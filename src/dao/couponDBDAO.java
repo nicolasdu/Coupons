@@ -38,7 +38,7 @@ public class couponDBDAO implements couponDAO {
 				System.out.println("Creating statement...");
 				stmt = conn.createStatement();
 				String sql;				
-				sql ="INSERT INTO coupon "+"VALUES ("+coup.getId()+", '"+ coup.getTitle()+", '" +coup.getStartDate()+", '"+coup.getEndDate()+", '"+coup.getType()+", '"+coup.getAmount()+", '"+coup.getPrice()+", '"+coup.getImage()+",'"+coup.getType()+"')";
+				sql ="INSERT INTO coupon "+"VALUES ("+coup.getId()+", '"+ coup.getTitle()+"', '" +coup.getStartDate()+"', '"+coup.getEndDate()+"', "+coup.getAmount()+", '"+coup.getMessage()+"', '"+coup.getPrice()+"', '"+coup.getImage()+"','"+coup.getType()+"')";
 				stmt.executeUpdate(sql);
 				System.out.println("Inserted records into the table...");
 				
@@ -117,7 +117,7 @@ public class couponDBDAO implements couponDAO {
 	@Override
 	public void updateCoupon(Coupon coup) {
 		
-Coupon tmp = getCoupon(coup.getId());		
+		Coupon tmp = getCoupon(coup.getId());		
 		
 		if(tmp != null) {
 			Connection conn = null;
@@ -130,7 +130,7 @@ Coupon tmp = getCoupon(coup.getId());
 				System.out.println("Creating statement...");
 				stmt =conn.createStatement();
 				String sql;				
-				sql ="UPDATE coupon SET TITLE='"+ coup.getTitle()+"', START_DATE=" +coup.getStartDate()+",END_DATE="+coup.getEndDate()+",TYPE= '"+coup.getType()+"', AMOUNT="+coup.getAmount()+",PRICE="+coup.getPrice()+",IMAGE= '"+coup.getImage()+"';";
+				sql ="UPDATE coupon SET TITLE="+ coup.getTitle()+", START_DATE='" +coup.getStartDate()+"',END_DATE='"+coup.getEndDate()+"',AMOUNT="+coup.getAmount()+",TYPE="+coup.getType()+",PRICE="+coup.getPrice()+",IMAGE="+coup.getImage()+",TYPE='"+coup.getType()+"' WHERE ID="+coup.getId()+";";
 				stmt.executeUpdate(sql);
 				System.out.println("updated records into the table...");
 				
@@ -228,7 +228,7 @@ Coupon tmp = getCoupon(coup.getId());
 				//STEP 2: Execute a query
 				System.out.println("Creating statement...");
 				stmt =conn.createStatement();
-				sql = "SELECT coupon.ID, coupon.TITLE, coupon.START_DATE, coupon.END_DATE, coupon.TYPE, coupon.AMOUNT, coupon.MESSAGE, coupon.PRICE, coupon.IMAGE FROM coupon;"; 
+				sql = "SELECT coupon.ID, coupon.TITLE, coupon.START_DATE, coupon.END_DATE, coupon.TYPE, coupon.AMOUNT, coupon.MESSAGE, coupon.PRICE, coupon.IMAGE FROM coupon ORDER by coupon.ID;"; 
 				ResultSet rs = stmt.executeQuery(sql);
 				// Extract data from result set
 				
@@ -243,9 +243,10 @@ Coupon tmp = getCoupon(coup.getId());
 					coupon.setAmount(rs.getInt("AMOUNT"));
 					coupon.setPrice(rs.getDouble("PRICE"));
 					coupon.setImage(rs.getString("IMAGE"));
+					coupon.setMessage(rs.getString("MESSAGE"));
 					//add it to the List
 					couponList.add(coupon);
-					coupon = null;
+					coupon = new Coupon();
 				}
 				//Clean environment
 				rs.close();
@@ -274,7 +275,7 @@ Coupon tmp = getCoupon(coup.getId());
 
 	//Get Coupon Type
 	@Override
-	public Collection<Coupon> getCouponType(Coupon type) {
+	public Collection<Coupon> getCouponbyType(couponType type) {
 		
 		Collection<Coupon> couponList= new ArrayList<Coupon>();
 		Coupon coupon = new Coupon();
@@ -289,7 +290,7 @@ Coupon tmp = getCoupon(coup.getId());
 				//Execute a query
 				System.out.println("Creating statement...");
 				stmt = conn.createStatement();
-				sql = "SELECT coupon.ID, coupon.TITLE, coupon.START_DATE, coupon.END_DATE, coupon.TYPE, coupon.AMOUNT, coupon.MESSAGE, coupon.PRICE, coupon.IMAGE FROM coupon WHERE coupon.TYPE = '"+ type.getType()+"';"; 
+				sql = "SELECT coupon.ID, coupon.TITLE, coupon.START_DATE, coupon.END_DATE, coupon.TYPE, coupon.AMOUNT, coupon.MESSAGE, coupon.PRICE, coupon.IMAGE FROM coupon WHERE coupon.TYPE = '"+type+"';"; 
 				ResultSet rs = stmt.executeQuery(sql);
 				//Extract data from result set
 				while(rs.next()){
@@ -298,14 +299,14 @@ Coupon tmp = getCoupon(coup.getId());
 					coupon.setTitle(rs.getString("TITLE"));
 					coupon.setStartDate(rs.getDate("START_DATE"));
 					coupon.setEndDate(rs.getDate("END_DATE"));
-					couponType coupType = couponType.valueOf(rs.getString("coupon.TYPE"));
-					coupon.setType(coupType);
+					coupon.setType(type);
 					coupon.setAmount(rs.getInt("AMOUNT"));
 					coupon.setPrice(rs.getDouble("PRICE"));
 					coupon.setImage(rs.getString("IMAGE"));
+					coupon.setMessage(rs.getString("MESSAGE"));
 					//adding it to the list 
 					couponList.add(coupon);
-					coupon = null;
+					coupon = new Coupon();
 				}
 				//Clean-up environment
 				rs.close();
