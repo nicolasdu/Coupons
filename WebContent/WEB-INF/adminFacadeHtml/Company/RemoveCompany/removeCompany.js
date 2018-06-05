@@ -9,4 +9,5 @@ var xmlhttp;
 		var url = "http://localhost:8080/Coupons/rest/adminServices/"+comp.value;
 		xmlhttp.open('DELETE', url, true);
 		xmlhttp.send(null);	
+		swal("Company has been deleted");
 }

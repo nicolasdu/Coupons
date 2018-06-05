@@ -175,6 +175,7 @@ public class customerDBDAO implements customerDAO  {
 			}
 			else {
 				System.out.println("wrong Id Try again :-)");
+				return null;
 			}
 			// close ResultSet connections 
 			rs.close();
@@ -277,7 +278,7 @@ public class customerDBDAO implements customerDAO  {
 				//Execute a query
 				System.out.println("Creating statement...");
 				stmt = conn.createStatement();
-				sql = "SELECT coupom.ID, coupom.TITLE, coupom.START_DATE, coupom.END_DATE, coupom.TYPE, coupom.AMOUNT, coupom.MESSAGE, coupom.PRICE, coupom.IMAGE FROM coupom,company_coupon WHERE customer_coupon.ID='" + customer.getId() + "' AND  customer_coupon.ID = coupon.ID ;"; 
+				sql = "SELECT coupon.ID, coupon.TITLE, coupon.START_DATE, coupon.END_DATE, coupon.TYPE, coupon.AMOUNT, coupon.MESSAGE, coupon.PRICE, coupon.IMAGE FROM coupon,company_coupon WHERE customer_coupon.ID='" + customer.getId() + "' AND  customer_coupon.ID = coupon.ID ;"; 
 				ResultSet rs = stmt.executeQuery(sql);
 				//Extract data from result set
 				while(rs.next()){
@@ -290,9 +291,10 @@ public class customerDBDAO implements customerDAO  {
 					coupon.setAmount(rs.getInt("AMOUNT"));
 					coupon.setPrice(rs.getDouble("PRICE"));
 					coupon.setImage(rs.getString("IMAGE"));
+					coupon.setMessage(rs.getString("MESSAGE"));
 					//adding coupon to the list 
 					coupList.add(coupon);
-					coupon = null;
+					coupon = new Coupon();
 				}
 				//Clean-up environment
 				rs.close();

@@ -45,6 +45,11 @@ public class AdminService {
 		Company comp = new Company();
 		adminFacade admin= new adminFacade();
 		comp=admin.getCompany(id);
+		if (comp==null) {
+			
+			return ("{'name':'null','compemail':'null'}");		
+			
+		}
 		return ("{'name':'"+comp.getCompName()+"','compemail':'"+comp.getEmail()+"'}");
 	}
 	
@@ -150,6 +155,11 @@ public class AdminService {
  		Customer cust = new Customer();
 		adminFacade admin= new adminFacade();
 		cust=admin.getCustomer(id);
+		if (cust==null) {
+			
+			return ("{'name':'null','custpass':'null'}");		
+			
+		}
 		return ("{'name':'"+cust.getCustName()+"','custpass':'"+cust.getPassword()+"'}");
 	}
  	

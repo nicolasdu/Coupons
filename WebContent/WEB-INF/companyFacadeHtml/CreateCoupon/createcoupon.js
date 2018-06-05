@@ -21,5 +21,6 @@ var xmlhttp;
 		xmlhttp.open('POST',url, true);
 		xmlhttp.send(null);
 		alert(url);
-		alert("SENT");
+		swal("Coupon Has Been Added !!");
+		
 	}

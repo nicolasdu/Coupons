@@ -69,6 +69,13 @@ public class companyService {
 		 	Coupon coup = new Coupon();
 		 	companyFacade compfacade= new companyFacade();
 		 	coup=compfacade.getCoupon(id);
+		 	if (coup==null) {
+				
+				return ("{'start':'null','end':'null','type':'null','message':'null','couptitle':'null','amount':'null',"
+						+"'image':'null','price':'null'}");		
+				
+			}
+		 	else
 			return ("{'start':'"+coup.getStartDate()+"','end':'"+coup.getEndDate()+"','type':'"+coup.getType()+"','message':'"+coup.getMessage()+
 					"','couptitle':'"+coup.getTitle()+"','amount':'"+coup.getAmount()+"','image':'"+coup.getImage()+
 					"','price':"+coup.getPrice()+"}");

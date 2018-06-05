@@ -18,14 +18,19 @@ function getDetails (){
 					
 					var det= eval("(" + xmlhttp.responseText+")");	
 					if(custId.value > 0){
-			
-						custname.value=det.name;
-						custpass.value=det.custpass;
-					}
-					else{
-						custname.value="";
-						custpass.value="";
-						aler(" Invalid Company Id ");
+						
+						if(det.name=='null' || det.custpass=='null'){
+							
+							custname.value="Invalid ID";
+							custpass.value="Invalid ID";
+							swal("Invalid Customer ID");	
+							
+						}
+						else{
+							
+							custname.value=det.name;
+							custpass.value=det.custpass;
+						}
 					}
 				}
 				else { 

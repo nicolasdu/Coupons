@@ -64,6 +64,7 @@ public class companyDBDAO implements companyDAO {
 			String sql;
 			sql =("DELETE FROM company WHERE id ="+cmp.getId()) ;
 			stmt.executeUpdate(sql);
+			System.out.println("Company has been deleted");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -155,6 +156,7 @@ public class companyDBDAO implements companyDAO {
 			}
 			else {
 				System.out.println("THERE IS NO SUCH COMPANY ID !!");
+				return null;
 			}
 			// close ResultSet connections 
 			rs.close();

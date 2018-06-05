@@ -26,28 +26,32 @@ function getDetails (){
 						
 					var det= eval("(" + xmlhttp.responseText+")");	
 					if(coupon.value > 0){
-			
-						start.value=det.start;
-						end.value=det.end;
-						type.value=det.type;
-						message.value=det.message;
-						couptitle.value=det.couptitle;
-						amount.value=det.amount;
-						image.value=det.image;
-						price.value=det.price;
 						
-					}
-					else{
+						if(det.start=='null'&& det.end=='null' && det.type=='null' && det.message=='null' && det.couptitle=='null' &&
+								det.amount=='null' && det.image=='null' && det.price=='null' )
+							{
+								start.value="";
+								end.value="";
+								type.value="";
+								message.value="";
+								couptitle.value="";
+								amount.value="";
+								image.value="";
+								price.value="";
+								swal(" Invalid Coupon Id ");
+							}
+							
+						else {
+								start.value=det.start;
+								end.value=det.end;
+								type.value=det.type;
+								message.value=det.message;
+								couptitle.value=det.couptitle;
+								amount.value=det.amount;
+								image.value=det.image;
+								price.value=det.price;
+						}
 						
-						start.value="";
-						end.value="";
-						type.value="";
-						message.value="";
-						couptitle.value="";
-						amount.value="";
-						image.value="";
-						price.value="";
-						aler(" Invalid Coupon Id ");
 					}
 				}
 				else { 

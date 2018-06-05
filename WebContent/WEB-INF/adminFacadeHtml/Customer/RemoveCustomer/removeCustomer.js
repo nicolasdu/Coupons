@@ -10,4 +10,5 @@
 		var url = "http://localhost:8080/Coupons/rest/adminServices/deletecustomer?custid="+custid.value;
 		xmlhttp.open('DELETE', url, true);
 		xmlhttp.send(null);	
+		swal("Customer Has Been Removed !!");
 }

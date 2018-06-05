@@ -9,4 +9,5 @@ var xmlhttp;
 		var url = "http://localhost:8080/Coupons/rest/companyService/deletecoupon?couponid="+coupon.value;
 		xmlhttp.open('DELETE', url, true);
 		xmlhttp.send(null);	
+		swal(" Coupon Has Been Deleted !! ");
 	}

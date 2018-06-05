@@ -16,17 +16,19 @@ function getDetails (){
 			if(xmlhttp.readyState == 4){
 				if(xmlhttp.status == 200){
 					
-					var det= eval("(" + xmlhttp.responseText+")");	
+					var det= eval("(" + xmlhttp.responseText+")");
 					if(comp.value > 0){
-			
+						if (det.name=='null' || det.compemail=='null'){
+							compname.value="Invalid ID";
+							compemail.value="Invalid ID";
+							swal("Invalid Company ID");	
+						}
+						else{
 						compname.value=det.name;
 						compemail.value=det.compemail;
+						}
 					}
-					else{
-						compname.value="";
-						compemail.value="";
-						aler(" Invalid Company Id ");
-					}
+					
 				}
 				else { 
 					

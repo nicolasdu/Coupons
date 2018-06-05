@@ -189,6 +189,7 @@ public class couponDBDAO implements couponDAO {
 				}
 			else {
 				System.out.println("wrong Id Try again :-)");
+				return null;
 			}
 			
 		}catch(SQLException se){

@@ -14,4 +14,5 @@ var xmlhttp;
 		xmlhttp.open('POST',url, true);
 		xmlhttp.send(null);
 		alert("SENT");
+		swal("Company Has Been Created");
 	}

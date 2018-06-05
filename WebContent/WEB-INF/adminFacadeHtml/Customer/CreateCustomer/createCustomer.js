@@ -12,4 +12,5 @@ var xmlhttp;
 		xmlhttp.open('POST',url, true);
 		xmlhttp.send(null);
 		alert("SENT");
+		swal("Customer has been Added !!");
 	}

@@ -13,4 +13,5 @@ var xmlhttp;
 		alert(url);
 		xmlhttp.open('PUT', url, true);
 		xmlhttp.send(null);
+		swal("Customer ID = "+custid.value+" Has Been Updated !!");
 }	
