@@ -20,6 +20,7 @@ import org.codehaus.jackson.map.ObjectWriter;
 import cop.Coupon;
 import cop.couponType;
 import couponClient.companyFacade;
+import couponClient.customerFacade;
 
 @Path("/customerService")
 public class CustomerService {
@@ -30,9 +31,9 @@ public class CustomerService {
 		 public String getPurchasedCoup() throws JsonGenerationException, JsonMappingException, IOException
 			{
 				System.out.println("server side");
-				companyFacade compfacade= new companyFacade();
+				customerFacade custfacade= new customerFacade();
 				Collection<Coupon> couponList=new HashSet<Coupon>();
-				couponList=compfacade.getAllCoupon();
+				couponList=custfacade.getAllPurchasedCoupons();
 				java.util.Iterator<Coupon> iterator =couponList.iterator();
 				ObjectWriter ow = new ObjectMapper().writer().withDefaultPrettyPrinter();
 				String json=null;
@@ -40,8 +41,28 @@ public class CustomerService {
 			        Object val = iterator.next();
 			        json = json+ow.writeValueAsString(val);
 				}
+				System.out.println(json);
 				return json;
 			}
 		 
-
+		 
+		 @GET
+		 @Path("/getpurchasedcouponstype")	
+		 @Consumes(MediaType.APPLICATION_JSON)
+		 public String getPurchasedCoupType(@QueryParam("type")couponType type) throws JsonGenerationException, JsonMappingException, IOException
+			{
+				System.out.println("server side");
+				customerFacade custfacade= new customerFacade();
+				Collection<Coupon> couponList=new HashSet<Coupon>();
+				couponList=custfacade.getAllPurchasedCouponsByType(type);
+				java.util.Iterator<Coupon> iterator =couponList.iterator();
+				ObjectWriter ow = new ObjectMapper().writer().withDefaultPrettyPrinter();
+				String json=null;
+				while (iterator.hasNext()){
+			        Object val = iterator.next();
+			        json = json+ow.writeValueAsString(val);
+				}
+				System.out.println(json);
+				return json;
+			}
 }

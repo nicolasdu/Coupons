@@ -278,7 +278,7 @@ public class customerDBDAO implements customerDAO  {
 				//Execute a query
 				System.out.println("Creating statement...");
 				stmt = conn.createStatement();
-				sql = "SELECT coupon.ID, coupon.TITLE, coupon.START_DATE, coupon.END_DATE, coupon.TYPE, coupon.AMOUNT, coupon.MESSAGE, coupon.PRICE, coupon.IMAGE FROM coupon,company_coupon WHERE customer_coupon.ID='" + customer.getId() + "' AND  customer_coupon.ID = coupon.ID ;"; 
+				sql = "SELECT coupon.ID, coupon.TITLE, coupon.START_DATE, coupon.END_DATE, coupon.TYPE, coupon.AMOUNT, coupon.MESSAGE, coupon.PRICE, coupon.IMAGE FROM coupon,customer_coupon WHERE customer_coupon.CUST_ID='" + customer.getId() + "' AND  customer_coupon.COUPON_ID = coupon.ID ;"; 
 				ResultSet rs = stmt.executeQuery(sql);
 				//Extract data from result set
 				while(rs.next()){
@@ -286,7 +286,7 @@ public class customerDBDAO implements customerDAO  {
 					coupon.setTitle(rs.getString("TITLE"));
 					coupon.setStartDate(rs.getDate("START_DATE"));
 					coupon.setEndDate(rs.getDate("END_DATE"));
-					couponType copTp = couponType.valueOf(rs.getString("coupom.TYPE"));
+					couponType copTp = couponType.valueOf(rs.getString("coupon.TYPE"));
 					coupon.setType(copTp);
 					coupon.setAmount(rs.getInt("AMOUNT"));
 					coupon.setPrice(rs.getDouble("PRICE"));
