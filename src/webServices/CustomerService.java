@@ -48,7 +48,7 @@ public class CustomerService {
 		 
 		 @GET
 		 @Path("/getpurchasedcouponstype")	
-		 @Consumes(MediaType.APPLICATION_JSON)
+		 @Consumes(MediaType.TEXT_PLAIN)
 		 public String getPurchasedCoupType(@QueryParam("type")couponType type) throws JsonGenerationException, JsonMappingException, IOException
 			{
 				System.out.println("server side");
@@ -62,7 +62,35 @@ public class CustomerService {
 			        Object val = iterator.next();
 			        json = json+ow.writeValueAsString(val);
 				}
-				System.out.println(json);
-				return json;
+				if (json==null)
+					return null;
+				else 
+					return json;
 			}
+		 
+		 @GET
+		 @Path("/getpurchasedcouponsbyprice")	
+		 @Consumes(MediaType.TEXT_PLAIN)
+		 public String getPurchasedCoupByType(@QueryParam("price")double price) throws JsonGenerationException, JsonMappingException, IOException
+			{
+				System.out.println("server side");
+				customerFacade custfacade= new customerFacade();
+				Collection<Coupon> couponList=new HashSet<Coupon>();
+				couponList=custfacade.getAllPurchasedCouponsByPrice(price);
+				java.util.Iterator<Coupon> iterator =couponList.iterator();
+				ObjectWriter ow = new ObjectMapper().writer().withDefaultPrettyPrinter();
+				String json=null;
+				while (iterator.hasNext()){
+			        Object val = iterator.next();
+			        json = json+ow.writeValueAsString(val);
+				}
+				
+				System.out.println(json);
+				if (json==null)
+					return null;
+				else 
+					return json;
+			}
+		 
+		 
 }

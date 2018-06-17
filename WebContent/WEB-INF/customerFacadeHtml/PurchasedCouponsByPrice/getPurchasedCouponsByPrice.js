@@ -1,15 +1,15 @@
 function numOfObjects(){
 		
 		var xhttp = new XMLHttpRequest();
-		var type=document.getElementById("type").value;
-		var url="http://localhost:8080/Coupons/rest/customerService/getpurchasedcouponstype?type="+type;
+		var price=document.getElementById("price").value;
+		var url="http://localhost:8080/Coupons/rest/customerService/getpurchasedcouponsbyprice?price="+price;
 		xhttp.open("GET",url, false);
 		xhttp.send();
 	
 		var numofobjects=0;
 		var result = xhttp.responseText;
 		if (result=="")
-			swal(" There Is No " +type+ " Purchased Coupons");
+			swal(" There Is No Purchased Coupons Which Costs "+price+" Dollars");
 		else {		
 		for(var i=0; i<result.length; i++)
 			{
@@ -35,7 +35,7 @@ function numOfObjects(){
 		
 		    for(var i=0;i<res2.length;i++)
 		    {
-
+		    	
 			        var table = document.getElementById("myTable");
 			        var row = table.insertRow(-1);
 			        var cell1 = row.insertCell(0);
@@ -48,8 +48,9 @@ function numOfObjects(){
 			        var cell8 = row.insertCell(7);
 			        var cell9 = row.insertCell(8);
 				
-			        
-			        if(i==0) 
+			        if(res2.length==1)
+			        	var text = (res2[i]);
+			        else if(i==0) 
 			        	var text = (res2[i]+"}");
 			        else if(i==res2.length-1)
 			        	var text = ("{"+res2[i]);	
@@ -78,4 +79,3 @@ function numOfObjects(){
 			    }
 		}
 }
-		

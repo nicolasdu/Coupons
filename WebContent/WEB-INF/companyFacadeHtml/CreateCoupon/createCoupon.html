@@ -5,6 +5,7 @@
 <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
 <script src="createcoupon.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <title>Create Coupon</title>
 </head>
 
@@ -59,8 +60,26 @@
 	 	
 	 	<tr>
 	 		<th>Attach an Image</th>
-	 		<td><input type="file" id="image" name="profile_photo" placeholder="Photo" required="" capture></td>
+	 		<td><input type='filesave an ima' id="imgInp" />
+				<img id="image" src="#" alt="your image" height="80px" width="80px" /></td>
 	 	</tr>
+	 	<script>
+	 		function readURL(input) {
+	
+		 		  if (input.files && input.files[0]) {
+		 		    var reader = new FileReader();
+		 		    reader.onload = function(e) {
+		 		      $('#image').attr('src', e.target.result);
+		 		    }
+	
+		 		    reader.readAsDataURL(input.files[0]);
+		 		  }
+		 		}
+	
+		 		$("#imgInp").change(function() {
+		 		  readURL(this);
+		 		});
+	 	</script>
 	 	
 	 	<tr>
 	 		<th>Enter Price</th>

@@ -48,7 +48,7 @@ public class companyService {
 		 coup.setAmount(amount);
 		 coup.setPrice(price);
 		 coup.setImage(image);
-		 compfacade.CreateCoupon(coup);		 
+		 compfacade.CreateCoupon(coup);	
 	    }
 	 
 	 @DELETE

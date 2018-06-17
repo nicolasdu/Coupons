@@ -73,8 +73,9 @@
 			        cell6.id="6"+[i]; // + row
 			        cell7.innerHTML = obj.price;
 			        cell7.id="7"+[i];
+			        cell8.id="image"+[i];
 			        cell8.innerHTML = obj.image;
-			        cell8.id="8"+[i];
+			        
 			        cell9.innerHTML = obj.type;
 			        cell9.id="9"+[i];
 			    }

@@ -25,7 +25,7 @@ public class couponDBDAO implements couponDAO {
 		
 		Coupon tmp = getCoupon(coup.getId());		
 		
-		if(tmp != null) {
+		if(tmp == null) {
 			Connection conn = null;
 			Statement stmt = null;
 			ConnectionPool conpool = new ConnectionPool();

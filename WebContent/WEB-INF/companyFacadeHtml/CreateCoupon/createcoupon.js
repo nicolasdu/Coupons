@@ -5,7 +5,7 @@ var xmlhttp;
 	}
 	
 	function setDetails() {
-		alert("set details");
+		var input;
 		var coupid=document.getElementById("coupid");
 		var couptitle=document.getElementById("couptitle"); 
 		var start=document.getElementById("start");
@@ -14,13 +14,13 @@ var xmlhttp;
 		var message=document.getElementById("message"); 
 		var amount=document.getElementById("amount");
 		var price=document.getElementById("price");
-		var image=document.getElementById("image");
-		alert(image.src);
-		
-		var url ="http://localhost:8080/Coupons/rest/companyService/createcoupon?id="+coupid.value+"&title="+couptitle.value+"&start="+start.value+"&end="+end.value+"&type="+type.value+"&message="+message.value+"&amount="+amount.value+"&price="+price.value+"&image="+image.src;
+		var image=document.getElementById("image").src;
+		var url ="http://localhost:8080/Coupons/rest/companyService/createcoupon?id="+coupid.value+"&title="+couptitle.value+"&start="+start.value+"&end="+end.value+"&type="+type.value+"&message="+message.value+"&amount="+amount.value+"&price="+price.value+"&image="+image;
 		xmlhttp.open('POST',url, true);
 		xmlhttp.send(null);
 		alert(url);
 		swal("Coupon Has Been Added !!");
 		
 	}
+	
+
