@@ -20,10 +20,8 @@ import org.codehaus.jackson.map.JsonMappingException;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.codehaus.jackson.map.ObjectWriter;
 
-import cop.Company;
 import cop.Coupon;
 import cop.couponType;
-import couponClient.adminFacade;
 import couponClient.companyFacade;
 
 @Path("/companyService")
@@ -60,7 +58,7 @@ public class companyService {
 		 	coup=compfacade.getCoupon(id);
 		 	compfacade.removeCoupon(coup);
 		}
-	 
+	 //fix image
 	 @GET 
 	 @Path("/getcoupon")
 	 @Produces("application/json")

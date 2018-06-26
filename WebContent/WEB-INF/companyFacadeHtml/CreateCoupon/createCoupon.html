@@ -58,11 +58,20 @@
 	 		<td><input type="text" id="amount" size="30"/></td>
 	 	</tr>
 	 	
+	 	
 	 	<tr>
-	 		<th>Attach an Image</th>
-	 		<td><input type='filesave an ima' id="imgInp" />
-				<img id="image" src="#" alt="your image" height="80px" width="80px" /></td>
+	 		<th>Enter Price</th>
+	 		<td><input type="text" id="price" size="30"/>
 	 	</tr>
+	 	
+	 	<tr>
+	 		<th>Upload an Image</th>
+	 		<td><input type='file' id="imgInp" />
+				<img id="image" src="#" alt="your image" height="80px" width="80px" /><br><br>
+				<input id="button" type="button" value="Add Coupon" onClick="setDetails()"/></td>
+	 	</tr>
+	 	
+	 	
 	 	<script>
 	 		function readURL(input) {
 	
@@ -79,12 +88,8 @@
 		 		$("#imgInp").change(function() {
 		 		  readURL(this);
 		 		});
+		 		 
 	 	</script>
-	 	
-	 	<tr>
-	 		<th>Enter Price</th>
-	 		<td><input type="text" id="price" size="30"/>&nbsp<input id="button" type="button" value="Add Coupon" onClick="setDetails()"/></td>
-	 	</tr>
 	 	
 	 </table>
 

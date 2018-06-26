@@ -59,16 +59,6 @@ h1 {
   padding-left:2%;  
 }
 
-/* Background-color of the odd rows */
-#table  tr:nth-child(odd) {
-	  background-color: #323C50;
-}
-
-/* Background-color of the even rows */
-#table  tr:nth-child(even) {
-	  background-color: #2C3446;
-}
-
 #table  th {
 	  background-color: #1F2739;
 }

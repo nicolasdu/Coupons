@@ -14,7 +14,7 @@ var xmlhttp;
 		var message=document.getElementById("message"); 
 		var amount=document.getElementById("amount");
 		var price=document.getElementById("price");
-		var image=document.getElementById("image").src;
+		var image=document.getElementById("image").value;
 		var url ="http://localhost:8080/Coupons/rest/companyService/createcoupon?id="+coupid.value+"&title="+couptitle.value+"&start="+start.value+"&end="+end.value+"&type="+type.value+"&message="+message.value+"&amount="+amount.value+"&price="+price.value+"&image="+image;
 		xmlhttp.open('POST',url, true);
 		xmlhttp.send(null);
