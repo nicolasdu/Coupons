@@ -13,7 +13,7 @@ var xmlhttp;
 				var url = "http://localhost:8080/Coupons/rest/adminServices/login?username="+username+"&password="+password+"&clientType="+loginType;
 				xmlhttp.open("GET", url, true);
 				xmlhttp.send(null);
-				alert("sent");
+				alert(url);
 			}
 			
 $(document).ready(function () {
@@ -32,3 +32,6 @@ $('#password').focus(function() {
 $('#password').blur(function() {
 	$('label[for="password"]').removeClass('selected');
 });
+
+
+

@@ -1,0 +1,88 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Style the header */
+header {
+    background: url("../images/image.jpg");
+    background-size: cover;
+    padding: 30px;
+    text-align: center;
+    font-size: 35px;
+    color: white;
+    background-repeat:no-repeat;
+}
+
+/* Create two columns/boxes that floats next to each other */
+nav {
+    float: left;
+    width: 100%;
+  
+    padding: 20px;
+}
+
+/* Style the list inside the menu */
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li{
+	
+	padding-bottom : 32%;
+	
+}
+
+article {
+    float: left;
+    padding: 20px;
+    position : relative;
+ 
+}
+
+section{
+	
+	width: 15%;
+    display: table;
+    background-color: #f1f1f1;
+}
+
+footer {
+
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   padding-bottom : 1%;
+   width: 100%;
+   text-align: center;
+    
+}
+
+
+@media (max-width: 600px) {
+    nav, article {
+        width: 100%;
+        height: auto;
+    }
+}
+html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
+.w3-sidebar {
+  z-index: 3;
+  width: 250px;
+  top: 43px;
+  bottom: 0;
+  height: inherit;
+}
+
+.w3-sidebar {
+    z-index: 3;
+    width: 250px;
+    top: 134px;
+    bottom: 134px;
+    height: inherit;
+}
+

@@ -4,31 +4,33 @@
 <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="../../style.css">
 <script src="getCompany.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
 
 <title>Get Company</title>
 </head>
 
 <body onload="init()">
 	<h1>Call Admin Service</h1>
-	 <table id="table">
-	 	<tr>
-	 		<th>Enter CompanyId</th>
-	 		<td><input type="text" id="compId" size="10" /> <input id="button" type="button" value="Get Info" onClick="getDetails()"/>
-	 	</tr>	
-	 	
-	 	<tr>
-	 		<th>Company Name</th>
-	 		<td><input type="text" readonly="true"  id="compname" size="30"/></td>
-	 	</tr>
-	 	
-	 	<tr>
-	 		<th>Company Email</th>
-	 		<td><input type="email" readonly="true"id="compemail" size="30"/></td>
-	 	</tr>
-	 	
-	 	
-	 </table>
+	<table id="table">
+		<tr>
+			<th>Enter CompanyId</th>
+			<td><input type="text" id="compId" size="10" /> <input
+				id="button" type="button" value="Get Info" onClick="getDetails()" />
+		</tr>
+
+		<tr>
+			<th>Company Name</th>
+			<td><input type="text" readonly="true" id="compname" size="30" /></td>
+		</tr>
+
+		<tr>
+			<th>Company Email</th>
+			<td><input type="email" readonly="true" id="compemail" size="30" /></td>
+		</tr>
+
+
+	</table>
 
 </body>
 </html>
