@@ -182,23 +182,4 @@ public class AdminService {
 		return json;
 	}
 	
-
-	@GET
-	@Path("/login")
-	@Produces(MediaType.APPLICATION_JSON)
-	@Consumes(MediaType.APPLICATION_JSON)
-	
-	public String login(@QueryParam("username") String username , @QueryParam("password") String password , @QueryParam("clientType") String clienttype) {
-		
-		System.out.println("server side");
-		System.out.println("username is : "+username+"password is :"+password+"client type is : "+clienttype);
-//		clientType type = clientType.valueOf(clienttype);
-//		couponClientFacade couponClientFacade = new adminFacade().login(username, password, type);
-//		System.out.println("username is : "+username+"password is :"+password+"client type is : "+clienttype);
-		
-		
-		return null;
-		
-	}
-	
 }

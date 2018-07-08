@@ -130,7 +130,7 @@ public class couponDBDAO implements couponDAO {
 				System.out.println("Creating statement...");
 				stmt =conn.createStatement();
 				String sql;				
-				sql ="UPDATE coupon SET TITLE="+ coup.getTitle()+", START_DATE='" +coup.getStartDate()+"',END_DATE='"+coup.getEndDate()+"',AMOUNT="+coup.getAmount()+",TYPE="+coup.getType()+",PRICE="+coup.getPrice()+",IMAGE="+coup.getImage()+",TYPE='"+coup.getType()+"' WHERE ID="+coup.getId()+";";
+				sql ="UPDATE coupon SET END_DATE='"+coup.getEndDate()+"',PRICE="+coup.getPrice()+" WHERE ID="+coup.getId()+";";
 				stmt.executeUpdate(sql);
 				System.out.println("updated records into the table...");
 				

@@ -8,7 +8,7 @@ body {
 
 /* Style the header */
 header {
-    background: url("../images/image.jpg");
+    background: url("http://localhost:8080/Coupons/Images/image.jpg");
     background-size: cover;
     padding: 30px;
     text-align: center;

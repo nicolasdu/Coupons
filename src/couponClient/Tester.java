@@ -13,7 +13,7 @@ import cop.Coupon;
 import cop.couponType;
 import dao.companyDAO;
 import dao.companyDBDAO;
-import javassist.bytecode.Descriptor.Iterator;
+
 
 public class Tester {
 	

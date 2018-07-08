@@ -83,21 +83,14 @@ public class companyService {
 	 @PUT
 	 @Path("/updatecoupon")
 	 @Consumes(MediaType.TEXT_PLAIN)
-		public void updateCompanyById(@QueryParam("id")int id,@QueryParam("title")String title,@QueryParam("start")Date start,@QueryParam("end")Date end,
-				 @QueryParam("type")couponType type,@QueryParam("message")String message,@QueryParam("amount")int amount,@QueryParam("price")double price,@QueryParam("image")String image){
+		public void updateCompanyById(@QueryParam("id")int id,@QueryParam("end")Date end,@QueryParam("price")double price){
 			
 		 	System.out.println("server side");
 		 	Coupon coup = new Coupon();
 		 	companyFacade compfacade= new companyFacade();
 		 	coup=compfacade.getCoupon(id);
-		 	coup.setTitle(title);
-			coup.setStartDate(start);
 			coup.setEndDate(end);
-			coup.setType(type);
-			coup.setMessage(message);
-			coup.setAmount(amount);
 			coup.setPrice(price);
-			coup.setImage(image);
 			compfacade.updateCoupon(coup);		
 		}
 	 

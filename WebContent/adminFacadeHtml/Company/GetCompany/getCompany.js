@@ -4,6 +4,7 @@ var xmlhttp;
 		xmlhttp=new XMLHttpRequest ();
 	}
 function getDetails (){
+		alert("function")
 		var comp=document.getElementById("compId");
 		var url = "http://localhost:8080/Coupons/rest/adminServices/get?compId="+comp.value;
 		xmlhttp.open('GET', url, true);

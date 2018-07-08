@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Customer</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+<link rel="stylesheet" href="iFrame.css">
+</head>
+<body>
+<header>
+
+<h1>Customer</h1>
+</header>
+<!-- Sidebar -->
+<nav class="w3-sidebar w3-bar-block w3-collapse w3-large w3-theme-l5 w3-animate-left" id="mySidebar">
+  <a href="javascript:void(0)" onclick="w3_close()" class="w3-right w3-xlarge w3-padding-large w3-hover-black w3-hide-large" title="Close Menu">
+    <i class="fa fa-remove"></i>
+  </a>
+  <h4 class="w3-bar-item"><b>Menu</b></h4>
+  <a class="w3-bar-item w3-button w3-hover-black" onclick="popupCenter('http://localhost:8080/Coupons/customerFacadeHtml/PurchasedCoupons/getPurchasedCoupons.html', 'Purchased Coupons',1300,800);">Purchased Coupons</a>
+  <a class="w3-bar-item w3-button w3-hover-black" onclick="popupCenter('http://localhost:8080/Coupons/customerFacadeHtml/PurchasedCouponsByPrice/getPurchasedCouponsByPrice.html', 'Purchased Coupon By Price',1300,800);">Purchased Coupon By Price</a>
+  <a class="w3-bar-item w3-button w3-hover-black" onclick="popupCenter('http://localhost:8080/Coupons/customerFacadeHtml/PurchasedCouponsType/getPurchasedCouponByType.html', 'Purchased Coupon By Type',800,800);">Purchased Coupon By Type</a>
+  
+<!-- Main content: shift it to the right by 250 pixels when the sidebar is visible -->
+<div class="w3-main" style="margin-left:250px">
+
+  <footer id="myFooter">
+    <div class="w3-container w3-theme-l2 w3-padding-32">
+      <h4>Footer</h4>
+    </div>
+  </footer>
+</div>
+
+<script>
+		function popupCenter(url, title, w, h) {
+			var dualScreenLeft = window.screenLeft != undefined ? window.screenLeft : window.screenX;
+		    var dualScreenTop = window.screenTop != undefined ? window.screenTop : window.screenY;
+
+		    var width = window.innerWidth ? window.innerWidth : document.documentElement.clientWidth ? document.documentElement.clientWidth : screen.width;
+		    var height = window.innerHeight ? window.innerHeight : document.documentElement.clientHeight ? document.documentElement.clientHeight : screen.height;
+
+		    var left = ((width / 2) - (w / 2)) + dualScreenLeft;
+		    var top = ((height / 2) - (h / 2)) + dualScreenTop;
+		    var newWindow = window.open(url, title, 'scrollbars=yes, width=' + w + ', height=' + h + ', top=' + top + ', left=' + left);
+
+		    // Puts focus on the newWindow
+		    if (window.focus) {
+		        newWindow.focus();
+		    }
+		}
+</script>
+
+</body>
+</html>

@@ -5,7 +5,7 @@ var xmlhttp;
 	}
 	
 	function setDetails() {
-		alert("set details");
+		alert("Hello");
 		var compid=document.getElementById("compid");
 		var compname=document.getElementById("compname"); 
 		var compemail=document.getElementById("compemail");
